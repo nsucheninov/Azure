@@ -1,4 +1,3 @@
-# My first template
 # “Hello world” website with load balancing 
 
 This template deploys:
