@@ -28,6 +28,9 @@
 	},
 	"configurationFunction": {
 	  "value": "WebServer.ps1\\WebServer"
+	},
+	"WebSiteName": {
+	  "value": "WebSite1"
 	}
   }
 }
