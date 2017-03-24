@@ -12,7 +12,7 @@ This template deploys:
 9.	DSC extension that:
     1.	Install IIS role
     2.	Install ASP.NET45 feature
-    3.	Disable default site (by using xWebAdministration module
+    3.	Disable default site (by using xWebAdministration module)
     4.	Copy web content
     5.	Create new website
     6.	Delete source content
