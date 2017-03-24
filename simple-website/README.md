@@ -1,3 +1,4 @@
+# My first template
 # “Hello world” website with load balancing 
 
 This template deploys:
@@ -16,6 +17,7 @@ This template deploys:
     4.	Copy web content
     5.	Create new website
     6.	Delete source content
+
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fnsucheninov%2FAzure%2Fmaster%2Fsimple-website%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
