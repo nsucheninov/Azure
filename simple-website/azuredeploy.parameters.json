@@ -1,0 +1,33 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUsername": {
+      "value": "LabAdmin"
+    },
+    "adminPassword": {
+      "value": "AzureP@ssw0rd"
+    },
+    "dnsNameforLBIP": {
+      "value": "sns01"
+    },
+	"storageAccountName": {
+	  "value": "sns01"
+	},
+	"numberOfInstances": {
+	  "value": 2
+	},
+	"vmNamePrefix": {
+	  "value": "WEB"
+	},
+	"OS": {
+	  "value": "Windows"
+	},
+	"modulesUrl": {
+	  "value": "https://github.com/nsucheninov/Azure/raw/master/simple-webapp/WebServer2.ps1.zip"
+	},
+	"configurationFunction": {
+	  "value": "WebServer2.ps1\\WebServer"
+	}
+  }
+}
