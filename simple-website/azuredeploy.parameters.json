@@ -24,7 +24,7 @@
 	  "value": "Windows"
 	},
 	"modulesUrl": {
-	  "value": "https://github.com/nsucheninov/Azure/raw/master/simple-webapp/WebServer2.ps1.zip"
+	  "value": "https://github.com/nsucheninov/Azure/raw/master/simple-website/WebServer2.ps1.zip"
 	},
 	"configurationFunction": {
 	  "value": "WebServer2.ps1\\WebServer"
