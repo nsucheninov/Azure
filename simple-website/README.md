@@ -1,4 +1,4 @@
-# “Hello world” website with load balancing 
+# Simple “Hello world” website with load balancing 
 
 This template deploys:
 1.	Storage account
