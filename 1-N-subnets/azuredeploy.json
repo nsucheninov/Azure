@@ -1,0 +1,89 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+    "vnetName": {
+		"type": "string",
+		"defaultValue": "vnet1",
+		"metadata": {
+			"description": "VNet name"
+		}
+    },
+    "vnetAddressPrefix": {
+		"type": "string",
+		"defaultValue": "10.0.0.0/16",
+		"metadata": {
+			"description": "Address prefix"
+		}
+    },
+    "numberOfSubnets": {
+		"type": "int",
+		"defaultValue": 1,
+		"minValue": 0,
+		"maxValue": 254,
+		"metadata": {
+			"description": "Number of subnets to deploy"
+		}
+    },
+    "subnetNamePrefix": {
+		"type": "string",
+		"defaultValue": "subnet",
+		"metadata": {
+			"description": "Subnet prefix name"
+		}
+    },
+    "subnetPrefix": {
+		"type": "string",
+		"defaultValue": "10.0.0.0/24",
+		"metadata": {
+			"description": "Subnet prefix"
+		}
+    }
+  },
+  "variables": {
+	"apiVersion": "2015-06-15"
+  },
+  "resources": [
+    {
+		"apiVersion": "[variables('apiVersion')]",
+		"type": "Microsoft.Network/virtualNetworks",
+		"name": "[parameters('vnetName')]",
+		"location": "[resourceGroup().location]",
+		"properties": {
+			"addressSpace": {
+				"addressPrefixes": [
+					"[parameters('vnetAddressPrefix')]"
+				]
+			}
+		}
+    },
+	{
+		"apiVersion": "[variables('apiVersion')]",
+		"type": "Microsoft.Network/virtualNetworks/subnets",
+		"name": "[concat(parameters('vnetName'),'/',parameters('subnetNamePrefix'),'0')]",
+		"location": "[resourceGroup().location]",
+		"dependsOn": [
+			"[concat('Microsoft.Network/virtualNetworks/',parameters('vnetName'))]"
+		],
+		"properties": {
+			"addressPrefix": "[concat('10.0.0.0/24')]"
+		}
+	},
+	{
+		"apiVersion": "[variables('apiVersion')]",
+		"type": "Microsoft.Network/virtualNetworks/subnets",
+		"name": "[concat(parameters('vnetName'),'/',parameters('subnetNamePrefix'),copyindex(1))]",
+		"location": "[resourceGroup().location]",
+		"dependsOn": [
+			"[concat('Microsoft.Network/virtualNetworks/vnet1/subnets/',parameters('subnetNamePrefix'),copyindex())]"
+		],
+		"copy": {
+			"name": "subnetLoop",
+			"count": "[parameters('numberOfSubnets')]"
+		},
+		"properties": {
+			"addressPrefix": "[concat('10.0.',copyindex(1),'.0/24')]"
+		}
+	}
+  ]
+}
