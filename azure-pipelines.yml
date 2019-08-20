@@ -10,14 +10,14 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: |
-    ls -la
+- checkout: self
+  persistCredentials: true
 - task: CmdLine@2
   inputs:
     script: |
-      git status
+      echp add remote repo
       git remote add sourceRepo https://nsucheninov@dev.azure.com/nsucheninov/Power%20Monitoring/_git/Power%20Monitoring
-      git status
+      echo fetch from remote
       git fetch sourceRepo
       git status
       ls -la
