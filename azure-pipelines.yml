@@ -10,15 +10,16 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
 - script: |
-    git status
-    git remote add sourceRepo https://nsucheninov@dev.azure.com/nsucheninov/Power%20Monitoring/_git/Power%20Monitoring
-    git status
-    gir fetch sourceRepo
-    git status
-    git push origin
-    git status
-  displayName: 'Run a multi-line script'
+    ls -la
+- task: CmdLine@2
+  inputs:
+    script: |
+      git status
+      git remote add sourceRepo https://nsucheninov@dev.azure.com/nsucheninov/Power%20Monitoring/_git/Power%20Monitoring
+      git status
+      git fetch sourceRepo
+      git status
+      ls -la
+
+
