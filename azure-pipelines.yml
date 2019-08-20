@@ -15,4 +15,10 @@ steps:
 
 - script: |
     git status
+    git remote add sourceRepo https://nsucheninov@dev.azure.com/nsucheninov/Power%20Monitoring/_git/Power%20Monitoring
+    git status
+    gir fetch sourceRepo
+    git status
+    git push origin
+    git status
   displayName: 'Run a multi-line script'
